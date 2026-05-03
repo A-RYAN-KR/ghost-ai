@@ -1,4 +1,4 @@
-# internal-linter-service
+# ghost-ai-coder
 
 > Background code quality daemon for TypeScript, JavaScript, and Java projects.
 
@@ -6,7 +6,7 @@
 
 ## What it does
 
-Write `// @gen: <your instruction> @@` anywhere in a `.tsx`, `.ts`, `.js`, `.jsx`, or `.java` file and hit save. The daemon detects the marker, sends the surrounding code as context to **Google Gemini**, and atomically replaces the comment with real, working code — indented correctly, formatted with Prettier, and with missing React imports auto-injected.
+Write `// @gen: <your instruction> @@` anywhere in a `.tsx`, `.ts`, `.js`, `.jsx`, or `.java` file and hit save. The daemon detects the marker, sends the surrounding code as context to an **OpenRouter AI model**, and atomically replaces the comment with real, working code — indented correctly, formatted with Prettier, and with missing React imports auto-injected.
 
 ---
 
@@ -15,27 +15,27 @@ Write `// @gen: <your instruction> @@` anywhere in a `.tsx`, `.ts`, `.js`, `.jsx
 ### Global (run anywhere)
 
 ```bash
-npm install -g internal-linter-service
+npm install -g ghost-ai-coder
 ```
 
 ### Local (per-project)
 
 ```bash
-npm install --save-dev internal-linter-service
+npm install --save-dev ghost-ai-coder
 ```
 
 ---
 
 ## Setup
 
-1. **Get a Gemini API key** → [https://aistudio.google.com/app/apikey](https://aistudio.google.com/app/apikey)
+1. **Get an OpenRouter API key** → [https://openrouter.ai/keys](https://openrouter.ai/keys)
 
 2. **Create a `.env` file** in the directory where you run the daemon:
 
 ```env
-GEMINI_API_KEY=your_key_here
-GEMINI_MODEL=gemini-2.0-flash-exp   # optional, default shown
-GEMINI_TEMPERATURE=0.1               # optional, 0.0–1.0
+OPENROUTER_API_KEY=your_key_here
+AI_MODEL=inclusionai/ling-2.6-1t:free # optional, default shown
+AI_TEMPERATURE=0.1                    # optional, 0.0–1.0
 ```
 
 3. **Start the daemon:**
@@ -48,7 +48,7 @@ ghost
 ghost ./src ./lib
 
 # Using the full package name
-internal-linter-service ./src
+ghost-ai-coder ./src
 ```
 
 ---
@@ -136,7 +136,7 @@ nohup ghost ./src > /dev/null 2>&1 &
 ## Programmatic API
 
 ```js
-const { injectFile, startWatcher } = require('internal-linter-service');
+const { injectFile, startWatcher } = require('ghost-ai-coder');
 
 // Process a single file manually
 await injectFile('/absolute/path/to/file.tsx', {
@@ -161,9 +161,9 @@ startWatcher({
 
 | Variable | Description | Default |
 |----------|-------------|---------|
-| `GEMINI_API_KEY` | **Required.** Your Google Gemini API key | — |
-| `GEMINI_MODEL` | Gemini model to use | `gemini-2.0-flash-exp` |
-| `GEMINI_TEMPERATURE` | Generation temperature (0.0–1.0) | `0.1` |
+| `OPENROUTER_API_KEY` | **Required.** Your OpenRouter API key | — |
+| `AI_MODEL` | OpenRouter AI model to use | `inclusionai/ling-2.6-1t:free` |
+| `AI_TEMPERATURE` | Generation temperature (0.0–1.0) | `0.1` |
 | `WATCH_EXTENSIONS` | Extensions to watch | `.tsx,.ts,.js,.jsx,.java` |
 
 ---
@@ -185,7 +185,7 @@ Quick scan: does file contain // @gen: and @@ ?
 Parse all markers + extract context (50 lines above/below)
     │
     ▼
-Call Gemini API with stealth prompt
+Call OpenRouter API with stealth prompt
     │
     ▼
 Apply indentation + Prettier format
