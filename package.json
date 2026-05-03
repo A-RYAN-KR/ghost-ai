@@ -1,0 +1,37 @@
+{
+  "name": "ghost-ai-coder",
+  "version": "1.0.0",
+  "description": "Background file linting and code quality service.",
+  "main": "src/index.js",
+  "bin": {
+    "ghost": "./bin/ghost.js",
+    "internal-linter-service": "./bin/ghost.js"
+  },
+  "scripts": {
+    "start": "node bin/ghost.js",
+    "dev": "node bin/ghost.js",
+    "test": "node bin/ghost.js --help"
+  },
+  "keywords": [
+    "linter",
+    "code-quality",
+    "internal"
+  ],
+  "author": "A-RYAN-KR",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/A-RYAN-KR/ghost-ai.git"
+  },
+  "dependencies": {
+    "chokidar": "^3.6.0",
+    "@google/generative-ai": "^0.21.0",
+    "prettier": "^3.4.2",
+    "dotenv": "^16.4.7",
+    "chalk": "^4.1.2",
+    "minimist": "^1.2.8"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
