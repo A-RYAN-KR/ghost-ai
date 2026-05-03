@@ -1,5 +1,5 @@
 {
-  "name": "ghost-ai-coder",
+  "name": "ghost-ai",
   "version": "1.0.0",
   "description": "Background file linting and code quality service.",
   "main": "src/index.js",
