@@ -1,4 +1,4 @@
-# ghost-ai-coder
+# ghost-ai
 
 > Background code quality daemon for TypeScript, JavaScript, and Java projects.
 
@@ -15,13 +15,13 @@ Write `// @gen: <your instruction> @@` anywhere in a `.tsx`, `.ts`, `.js`, `.jsx
 ### Global (run anywhere)
 
 ```bash
-npm install -g ghost-ai-coder
+npm install -g ghost-ai
 ```
 
 ### Local (per-project)
 
 ```bash
-npm install --save-dev ghost-ai-coder
+npm install --save-dev ghost-ai
 ```
 
 ---
@@ -48,7 +48,7 @@ ghost
 ghost ./src ./lib
 
 # Using the full package name
-ghost-ai-coder ./src
+ghost-ai ./src
 ```
 
 ---
@@ -136,7 +136,7 @@ nohup ghost ./src > /dev/null 2>&1 &
 ## Programmatic API
 
 ```js
-const { injectFile, startWatcher } = require('ghost-ai-coder');
+const { injectFile, startWatcher } = require('ghost-ai');
 
 // Process a single file manually
 await injectFile('/absolute/path/to/file.tsx', {
