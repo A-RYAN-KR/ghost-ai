@@ -1,0 +1,12 @@
+.env
+.env.example
+.git/
+.gitignore
+.github/
+test-files/
+test-runner.js
+scratch/
+*.tgz
+.ghost-tmp-*
+*.log
+.DS_Store
