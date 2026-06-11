@@ -4,7 +4,6 @@
 > Write a simple instruction in a comment, hit save, and watch it turn into production-ready code in real-time.
 
 [![npm version](https://img.shields.io/npm/v/ghost-ai.svg?style=flat-square&logo=npm&color=8A2BE2)](https://www.npmjs.com/package/ghost-ai)
-[![downloads](https://img.shields.io/npm/dm/ghost-ai.svg?style=flat-square&logo=npm&color=2188ff)](https://www.npmjs.com/package/ghost-ai)
 [![license](https://img.shields.io/github/license/A-RYAN-KR/ghost-ai.svg?style=flat-square&color=4caf50)](https://github.com/A-RYAN-KR/ghost-ai/blob/main/LICENSE)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](https://github.com/A-RYAN-KR/ghost-ai/pulls)
 
